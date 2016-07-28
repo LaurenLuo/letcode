@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   
+    
+    <script type="text/javascript">
+
+var wiggleMaxLength = function(nums) {
+    var len=nums.length;
+    if(len<=1){
+        return len;
+    }
+    var maxLen=nums.length;
+    var flag=0;
+    for(var i=1;i<len;i++){
+        if(nums[i]==nums[i-1]){
+            maxLen--;
+        }else if(nums[i]>nums[i-1]){
+            if(flag==1){
+                maxLen--;
+            }else{
+                flag=1;
+            }
+        }else if(nums[i]<nums[i-1]){
+            if(flag==-1){
+                maxLen--;
+            }else{
+                flag=-1;
+            }
+        }
+    }
+    return maxLen;
+};
+
+document.write(wiggleMaxLength([1,7,4,9,2,5]));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
